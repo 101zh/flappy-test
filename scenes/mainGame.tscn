@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cas2c5jehqqa7"]
+
+[ext_resource type="PackedScene" uid="uid://ccg8gogqrniov" path="res://scenes/bird.tscn" id="1_qdfsq"]
+
+[node name="Main Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="bird" parent="." instance=ExtResource("1_qdfsq")]
