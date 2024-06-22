@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cas2c5jehqqa7"]
+[gd_scene load_steps=3 format=3 uid="uid://cas2c5jehqqa7"]
 
 [ext_resource type="PackedScene" uid="uid://ccg8gogqrniov" path="res://scenes/bird.tscn" id="1_qdfsq"]
+[ext_resource type="PackedScene" uid="uid://cesllligv483m" path="res://scenes/pipe_section.tscn" id="2_t10cc"]
 
 [node name="Main Game" type="Node2D"]
 
@@ -8,3 +9,6 @@
 zoom = Vector2(4, 4)
 
 [node name="bird" parent="." instance=ExtResource("1_qdfsq")]
+
+[node name="pipeSection" parent="." instance=ExtResource("2_t10cc")]
+position = Vector2(0, 38)
