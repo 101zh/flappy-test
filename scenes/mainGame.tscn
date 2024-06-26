@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cas2c5jehqqa7"]
+[gd_scene load_steps=7 format=3 uid="uid://cas2c5jehqqa7"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_44yr6"]
 [ext_resource type="PackedScene" uid="uid://ccg8gogqrniov" path="res://scenes/bird.tscn" id="1_qdfsq"]
-[ext_resource type="PackedScene" uid="uid://cesllligv483m" path="res://scenes/pipe_section.tscn" id="2_t10cc"]
 [ext_resource type="Script" path="res://scripts/RetryScreen.gd" id="4_p5ojg"]
 
 [sub_resource type="Animation" id="Animation_5othh"]
@@ -44,24 +43,24 @@ _data = {
 
 [node name="Main Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_44yr6")
+
+[node name="Timer" type="Timer" parent="GameManager"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="pipeSection" parent="." instance=ExtResource("2_t10cc")]
-position = Vector2(123, 0)
-
 [node name="bird" parent="." instance=ExtResource("1_qdfsq")]
-position = Vector2(-63, -1)
+position = Vector2(-67, -1)
 collision_mask = 3
 motion_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="RetryScreen" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

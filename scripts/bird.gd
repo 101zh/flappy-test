@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
+@onready var game_manager = %GameManager
+@onready var bird = $"."
 
 const JUMP_VELOCITY = -150.0
 const GRAVITY = 650
 var isMovementDisabled : bool = false
-
 
 func _physics_process(delta):
 	
@@ -16,8 +17,18 @@ func _physics_process(delta):
 	# Handle jump.
 	if !isMovementDisabled && Input.is_action_just_pressed("ui_accept"):
 		velocity.y = JUMP_VELOCITY
+	
+	if move_and_slide():
+		die()
 
-	move_and_slide()
 
 func disable_movement():
 	isMovementDisabled = true
+	
+func die():
+
+	disable_movement()
+	game_manager.enable_retry_screen()
+	
+	
+

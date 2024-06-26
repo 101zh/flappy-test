@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" path="res://scripts/pipe_section.gd" id="1_o8bn1"]
 [ext_resource type="Texture2D" uid="uid://bsnbjdytrn3lg" path="res://assets/pipe.png" id="1_ym5jl"]
-[ext_resource type="Script" path="res://scripts/PointTrigger.gd" id="3_bqbu1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhipj"]
 size = Vector2(16, 116)
+
+[sub_resource type="GDScript" id="GDScript_4lpx3"]
+script/source = "extends Area2D
+
+
+  
+"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dui1j"]
 normal = Vector2(-1, 0)
@@ -46,9 +52,9 @@ texture = ExtResource("1_ym5jl")
 
 [node name="PointTrigger" type="Area2D" parent="."]
 collision_layer = 0
-script = ExtResource("3_bqbu1")
+script = SubResource("GDScript_4lpx3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointTrigger"]
 shape = SubResource("WorldBoundaryShape2D_dui1j")
 
-[connection signal="body_entered" from="PointTrigger" to="PointTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="PointTrigger" to="." method="_on_point_trigger_body_entered"]
