@@ -47,8 +47,6 @@ _data = {
 unique_name_in_owner = true
 script = ExtResource("1_44yr6")
 
-[node name="Timer" type="Timer" parent="GameManager"]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
@@ -58,6 +56,23 @@ collision_mask = 3
 motion_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="In-GameUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/In-GameUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 10.0
+offset_top = 10.0
+theme_override_font_sizes/font_size = 25
+text = "Score: 0"
 
 [node name="RetryScreen" type="Control" parent="CanvasLayer"]
 visible = false
