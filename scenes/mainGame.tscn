@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cas2c5jehqqa7"]
+[gd_scene load_steps=8 format=3 uid="uid://cas2c5jehqqa7"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_44yr6"]
 [ext_resource type="PackedScene" uid="uid://ccg8gogqrniov" path="res://scenes/bird.tscn" id="1_qdfsq"]
 [ext_resource type="Script" path="res://scripts/RetryScreen.gd" id="4_p5ojg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_icjp7"]
+distance = -84.0
 
 [sub_resource type="Animation" id="Animation_5othh"]
 length = 0.001
@@ -51,9 +54,15 @@ script = ExtResource("1_44yr6")
 zoom = Vector2(4, 4)
 
 [node name="bird" parent="." instance=ExtResource("1_qdfsq")]
+z_index = 2
 position = Vector2(-67, -1)
 collision_mask = 3
 motion_mode = 1
+
+[node name="Abyss" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Abyss"]
+shape = SubResource("WorldBoundaryShape2D_icjp7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
