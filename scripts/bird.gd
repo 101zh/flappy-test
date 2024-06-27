@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 @onready var game_manager = %GameManager
 @onready var bird = $"."
@@ -11,30 +11,29 @@ var dead : bool = false
 func _physics_process(delta):
 	
 	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += GRAVITY * delta
+	linear_velocity.y += GRAVITY * delta
 
 	# Handle jump.
 	if !dead && Input.is_action_just_pressed("ui_accept"):
-		velocity.y = JUMP_VELOCITY
-	
-	if move_and_slide():
-		die()
+		linear_velocity.y = JUMP_VELOCITY
 
-func negOrPos() -> int:
-	if randi_range(0,1)==0:
-		return -2
-	else:
-		return 1
+func _on_body_entered(body):
+	_die()
 
-func die():
+func _die():
 	if dead:
 		return
 	dead = true
-	collision_shape_2d.disabled = true
-	velocity.y+=-150
-	velocity.x+= negOrPos()*randf_range(40,50)
+	collision_mask = 0
+	collision_layer = 0 
+	linear_velocity.y+= randf_range(-325,-275)
+	linear_velocity.x = negOrPos()*randf_range(35,45)
+	angular_velocity = negOrPos()*randf_range(5,15)
 	game_manager.enable_retry_screen()
 	
-	
 
+func negOrPos() -> int:
+	if randi_range(0,1)==0:
+		return -1
+	else:
+		return 1

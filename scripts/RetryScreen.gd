@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
 	self.set_process(false)
+	self.visible = false
 
 func enable():
 	var animation_player = $AnimationPlayer

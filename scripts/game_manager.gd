@@ -28,6 +28,7 @@ func enable_retry_screen():
 	retry_screen.set_process(true)
 	retry_screen.visible = true
 	retry_screen.enable()
+	print("yes")
 
 func  spawn_pipes():
 	while true:
