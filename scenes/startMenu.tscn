@@ -18,13 +18,13 @@ theme_override_font_sizes/font_size = 50
 text = "Flappy Godot"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -125.0
-offset_top = 250.0
+offset_top = 225.0
 offset_right = 125.0
-offset_bottom = 387.0
+offset_bottom = 137.0
 grow_horizontal = 2
 
 [node name="Start" type="Button" parent="VBoxContainer"]
