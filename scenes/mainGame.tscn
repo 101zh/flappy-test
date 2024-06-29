@@ -1,48 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cas2c5jehqqa7"]
+[gd_scene load_steps=5 format=3 uid="uid://cas2c5jehqqa7"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_44yr6"]
 [ext_resource type="PackedScene" uid="uid://ccg8gogqrniov" path="res://scenes/bird.tscn" id="1_qdfsq"]
-[ext_resource type="Script" path="res://scripts/RetryScreen.gd" id="4_p5ojg"]
+[ext_resource type="PackedScene" uid="uid://brg6wsigq7nlo" path="res://scenes/retry_screen.tscn" id="3_jmkxj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_icjp7"]
 distance = -93.0
-
-[sub_resource type="Animation" id="Animation_5othh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/RetryScreen/Background:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_3w865"]
-resource_name = "fade_in"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/RetryScreen/Background:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.313726)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_oiohd"]
-_data = {
-"RESET": SubResource("Animation_5othh"),
-"fade_in": SubResource("Animation_3w865")
-}
 
 [node name="Main Game" type="Node2D"]
 
@@ -82,58 +45,4 @@ offset_top = 10.0
 theme_override_font_sizes/font_size = 25
 text = "Score: 0"
 
-[node name="RetryScreen" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("4_p5ojg")
-
-[node name="Background" type="ColorRect" parent="CanvasLayer/RetryScreen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
-
-[node name="Button" type="Button" parent="CanvasLayer/RetryScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -42.5
-offset_top = -25.0
-offset_right = 42.5
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Retry"
-
-[node name="Label" type="Label" parent="CanvasLayer/RetryScreen"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -109.5
-offset_right = 109.5
-offset_bottom = 69.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 50
-text = "You Suck"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/RetryScreen"]
-root_node = NodePath("../../..")
-libraries = {
-"": SubResource("AnimationLibrary_oiohd")
-}
-
-[connection signal="pressed" from="CanvasLayer/RetryScreen/Button" to="CanvasLayer/RetryScreen" method="_on_button_pressed"]
+[node name="RetryScreen" parent="CanvasLayer" instance=ExtResource("3_jmkxj")]
