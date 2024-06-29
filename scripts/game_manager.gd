@@ -6,7 +6,6 @@ var pipe = preload( "res://scenes/pipe_section.tscn")
 @onready var animation_player = $"../CanvasLayer/RetryScreen/AnimationPlayer"
 @onready var retry_screen = $"../CanvasLayer/RetryScreen"
 @onready var bird = $"../bird"
-@onready var timer = $Timer
 @onready var score_label = %ScoreLabel
 
 var topLeft : Vector2
@@ -27,13 +26,12 @@ func enable_retry_screen():
 	retry_screen.set_process(true)
 	retry_screen.visible = true
 	retry_screen.enable()
-	print("yes")
 
 func  spawn_pipes():
 	while true:
+		await get_tree().create_timer(pipe_spawn_time).timeout
 		var instance = pipe.instantiate()
 		instance.initialize(self)
 		instance.position = Vector2(bottomRight.x,0)
 		get_tree().current_scene.add_child(instance)
-		await get_tree().create_timer(pipe_spawn_time).timeout
 

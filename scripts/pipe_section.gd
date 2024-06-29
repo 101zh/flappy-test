@@ -33,6 +33,6 @@ func initialize(instance):
 	topLeft = game_manager.topLeft
 	midLineRange = (game_manager.bottomRight.y-topLeft.y)-(maxOpening*3)
 
-func _on_point_trigger_body_entered(body):
+func _on_point_trigger_body_entered(_body):
 	game_manager.add_score()  
 	point_trigger.queue_free()

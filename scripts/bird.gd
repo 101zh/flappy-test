@@ -17,7 +17,7 @@ func _physics_process(delta):
 	if !dead && Input.is_action_just_pressed("ui_accept"):
 		linear_velocity.y = JUMP_VELOCITY
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	_die()
 
 func _die():
