@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/RetryScreen.gd" id="4_p5ojg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_icjp7"]
-distance = -84.0
+distance = -93.0
 
 [sub_resource type="Animation" id="Animation_5othh"]
 length = 0.001
