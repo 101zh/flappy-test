@@ -60,7 +60,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 322.0
 grow_vertical = 2
-text = "Jump: Space"
+text = "Jump"
 horizontal_alignment = 1
 vertical_alignment = 1
 
