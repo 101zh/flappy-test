@@ -7,6 +7,7 @@ var pipe = preload( "res://scenes/pipe_section.tscn")
 @onready var retry_screen = $"../CanvasLayer/RetryScreen"
 @onready var bird = $"../bird"
 @onready var score_label = %ScoreLabel
+@onready var pause_menu = $"../CanvasLayer/PauseMenu"
 
 var topLeft : Vector2
 var bottomRight : Vector2
@@ -18,6 +19,11 @@ func _ready():
 	bottomRight = Vector2(topLeft.x+size.x, topLeft.y+size.y)
 	spawn_pipes()
 
+func _process(delta):
+	if(Input.is_action_just_pressed("Esc")):
+		pause_menu._enable()
+		get_tree().paused=true
+
 func add_score():
 	score += 1
 	score_label.text = "Score: "+ str(score)
@@ -27,8 +33,8 @@ func enable_retry_screen():
 	retry_screen.visible = true
 	retry_screen.enable()
 
-func  spawn_pipes():
-	while true:
+func spawn_pipes():
+	while true && !get_tree().paused:
 		await get_tree().create_timer(pipe_spawn_time).timeout
 		var instance = pipe.instantiate()
 		instance.initialize(self)
