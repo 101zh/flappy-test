@@ -11,4 +11,3 @@ func _enable():
 func _on_resume_pressed():
 	get_tree().paused = false
 	self.visible = false
-	game_manager.spawn_pipes()

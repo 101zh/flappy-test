@@ -14,6 +14,10 @@ distance = -93.0
 unique_name_in_owner = true
 script = ExtResource("1_44yr6")
 
+[node name="Timer" type="Timer" parent="GameManager"]
+wait_time = 1.25
+autostart = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
@@ -99,4 +103,5 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Resume"
 
+[connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Resume" to="CanvasLayer/PauseMenu" method="_on_resume_pressed"]

@@ -11,7 +11,6 @@ func enable():
 	retry.grab_focus()
 	animation_player.play("RESET")
 	animation_player.play("fade_in")
-	print("fade in")
 
 func _on_retry_pressed():
 	get_tree().reload_current_scene()
