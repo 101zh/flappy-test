@@ -35,10 +35,34 @@ offset_right = 452.0
 offset_bottom = 600.0
 grow_horizontal = 2
 
-[node name="JumpKeyBinds" type="Label" parent="VBoxContainer"]
+[node name="JumpKeyBind" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-text = "Jump - Space, W, ^"
+
+[node name="SetKeyBind" type="Button" parent="VBoxContainer/JumpKeyBind"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+text = "<Space>"
+
+[node name="JumpKeyBinds" type="Label" parent="VBoxContainer/JumpKeyBind"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 322.0
+grow_vertical = 2
+text = "Jump: Space"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VolumeControl" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
@@ -78,5 +102,6 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 20
 text = "Back"
 
+[connection signal="pressed" from="VBoxContainer/JumpKeyBind/SetKeyBind" to="." method="_on_set_key_bind_pressed"]
 [connection signal="value_changed" from="VBoxContainer/VolumeControl/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

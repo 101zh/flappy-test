@@ -17,7 +17,7 @@ func _physics_process(delta):
 	linear_velocity.y += GRAVITY * delta
 
 	# Handle jump.
-	if !dead && Input.is_action_just_pressed("ui_accept"):
+	if !dead && Input.is_action_just_pressed("Jump"):
 		jump_sound.play()
 		linear_velocity.y = JUMP_VELOCITY
 
