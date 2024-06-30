@@ -18,7 +18,7 @@ zoom = Vector2(4, 4)
 
 [node name="bird" parent="." instance=ExtResource("1_qdfsq")]
 z_index = 2
-position = Vector2(-67, -1)
+position = Vector2(-36, 0)
 collision_mask = 3
 
 [node name="Abyss" type="StaticBody2D" parent="."]
