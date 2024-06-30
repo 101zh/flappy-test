@@ -3,6 +3,9 @@ extends RigidBody2D
 @onready var game_manager = %GameManager
 @onready var bird = $"."
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var jump_sound = $jumpSound
+@onready var hit_sound = $hitSound
+
 
 const JUMP_VELOCITY = -150.0
 const GRAVITY = 650
@@ -15,12 +18,14 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if !dead && Input.is_action_just_pressed("ui_accept"):
+		jump_sound.play()
 		linear_velocity.y = JUMP_VELOCITY
 
 func _on_body_entered(_body):
 	_die()
 
 func _die():
+	hit_sound.play()
 	if dead:
 		return
 	dead = true

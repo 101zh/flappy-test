@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp1ljiy6uec7b"]
+
+[ext_resource type="AudioStream" uid="uid://hcasry8b271o" path="res://assets/audio/06_LOOP_A_Calm_Sea_by_Florian_Stracker.wav" id="1_r5rox"]
+
+[node name="Global" type="Node"]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_r5rox")
+autoplay = true
+bus = &"Music"
