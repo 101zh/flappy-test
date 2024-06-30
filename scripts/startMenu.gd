@@ -8,9 +8,11 @@ func _ready():
 
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://scenes/mainGame.tscn")
+	Global.prevScene = "res://scenes/startMenu.tscn"
 
 func _on_options_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/options_menu.tscn")
+	Global.prevScene = "res://scenes/startMenu.tscn"	
 
 func _on_quit_pressed():
 	get_tree().quit()
